@@ -1,0 +1,28 @@
+# Sandbox for the n8n coding agent.
+# Every branch the agent pushes (ai-fix/...) runs the tests here, on GitHub's machine.
+name: ai-fix-tests
+
+on:
+  push:
+    branches: ['ai-fix/**']
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          pip install pytest
+      - name: Run tests
+        run: python -m pytest -q
