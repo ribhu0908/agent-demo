@@ -14,6 +14,8 @@ def parse_amount(text):
 
 def average(amounts):
     """Average of a list of amounts."""
+    if not amounts:
+        return 0
     return sum(amounts) / len(amounts)
 
 

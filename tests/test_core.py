@@ -13,6 +13,10 @@ def test_average():
     assert average([100, 200, 300]) == 200
 
 
+def test_average_empty():
+    assert average([]) == 0
+
+
 def test_top_category():
     expenses = [
         {"date": "2026-11-01", "amount": 300, "category": "food"},
