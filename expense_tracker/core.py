@@ -25,7 +25,7 @@ def monthly_total(expenses, month):
     total = 0
     for e in expenses:
         d = datetime.strptime(e["date"], "%Y-%m-%d")
-        if d.strftime("%Y-%d") == month:
+        if d.strftime("%Y-%m") == month:
             total += e["amount"]
     return total
 

@@ -20,3 +20,8 @@ def test_top_category():
         {"date": "2026-11-03", "amount": 50, "category": "food"},
     ]
     assert top_category(expenses) == "food"
+
+
+def test_monthly_total():
+    expenses = [{"date": "2026-11-03", "amount": 120.0}, {"date": "2026-10-30", "amount": 50.0}]
+    assert monthly_total(expenses, "2026-11") == 120.0
