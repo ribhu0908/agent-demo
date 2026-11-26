@@ -13,6 +13,11 @@ def test_average():
     assert average([100, 200, 300]) == 200
 
 
+def test_monthly_total():
+    expenses = [{"date": "2026-11-03", "amount": 120.0}, {"date": "2026-10-30", "amount": 50.0}]
+    assert monthly_total(expenses, "2026-11") == 120.0
+
+
 def test_top_category():
     expenses = [
         {"date": "2026-11-01", "amount": 300, "category": "food"},
